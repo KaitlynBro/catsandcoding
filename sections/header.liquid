@@ -1,0 +1,53 @@
+{% for block in section.blocks %}
+
+  {% assign header_title = block.settings.header_title %}
+  {% assign header_subtitle = block.settings.header_subtitle %}
+  {% assign cta_url = block.settings.cta_url %}
+  {% assign cta_text = block.settings.cta_text %}
+  {% assign hero = block.settings.hero %}
+
+  <header style="background-image:url({{ hero | img_url: 'master' }});">
+    <h1>{{ header_title }}</h1>
+    <h2>{{ header_subtitle }}</h2>
+    <a href="{{ cta_url }}">{{ cta_text }}</a>
+  </header>
+  
+{% endfor %}
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "type":"header",
+        "name":"Header",
+        "settings": [
+          {
+            "id":"header_title",
+            "type":"text",
+            "label":"Header Title"
+          },
+          {
+            "id":"header_subtitle",
+            "type":"text",
+            "label":"Header Subtitle"
+          },
+          {
+            "id":"cta_text",
+            "type":"text",
+            "label":"Header CTA Text"
+          },
+          {
+            "id":"cta_url",
+            "type":"url",
+            "label":"Header CTA URL"
+          },
+          {
+            "id":"hero",
+            "type":"image_picker",
+            "label":"Background Hero Image"
+        }
+        ]
+      }
+    ]
+  }
+{% endschema %}
