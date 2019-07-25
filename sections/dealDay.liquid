@@ -1,0 +1,51 @@
+{% for block in section.blocks %}
+{% assign background_image = block.settings.background_image %}
+{% assign title = block.settings.title %}
+{% assign cta_url = block.settings.cta_url %}
+{% assign cta_text = block.settings.cta_text %}
+
+    <div style="background-image:url({{ background_image | img_url: 'master'}});">
+        <h3>{{ title }}</h3>
+        <a href="{{ cta_url }}" >{{ cta_text }}</a>
+    </div>
+
+{% endfor %}
+
+{% schema %}
+    {
+        "blocks": [
+            {
+                "type":"promo",
+                "name":"DealofDay",
+                "settings": [
+                    {
+                        "type":"image_picker",
+                        "label":"Background Image",
+                        "id":"background_image"
+                    },
+                    {
+                        "type":"text",
+                        "label":"Title",
+                        "id":"title"
+                    },
+                    {
+                        "type":"url",
+                        "label":"CTA URL",
+                        "id":"cta_url"
+                    },
+                    {
+                        "type":"text",
+                        "label":"CTA Text",
+                        "id":"cta_text"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name":"Deal of the Day",
+                "category":"Promotional"
+            }
+        ] 
+    }
+{% endschema %}

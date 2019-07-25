@@ -1,20 +1,20 @@
-{% for block in section.blocks %}
-{% assign logo = block.settings.logo %}
 
-<div>
+{% for block in section.blocks %}
+  {% assign logo = block.settings.logo %}
+  <div>
     <div>
-        <img src="{{ logo | img_url: '240x240' }}" alt="">
-        <h3>
-          c&c
-          <span>.</span>
-        </h3>
+      <img src="{{ logo | img_url: '240x240' }}" alt="">
+      <h3>
+        c&c
+        <span>.</span>
+      </h3>
     </div>
     <div>
-        {% for link in linklists.main-menu.links %}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
+      {% for link in linklists.main-menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
     </div>
-</div>
+  </div>
 {% endfor %}
 
 {% schema %}

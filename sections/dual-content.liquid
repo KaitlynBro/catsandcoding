@@ -1,0 +1,75 @@
+{% assign title = section.settings.title %}
+{% assign subtitle = section.settings.subtitle %}
+{% assign image_one = section.settings.image_one %}
+{% assign image_two = section.settings.image_two %}
+
+<div>
+    <div>
+        <div style="background-image:url({{ image_one | img_url: 'master' }});"></div>
+        <div style="background-image:url({{ image_two | img_url: 'master' }});"></div>
+    </div>
+    <div>
+        <h3>{{ title }}</h3>
+        <h4>{{ subtitle }}</h4>
+        <div>
+            {% for block in section.blocks %}
+                {% assign paragraph_title = block.settings.paragraph_title %}
+                {% assign paragraph_text = block.settings.paragraph_text %}
+                <h4>{{ paragraph_title }}</h4>
+                <p>{{ paragraph_text }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "settings": [
+        {
+            "type":"image_picker",
+            "label":"Image One",
+            "id":"image_one"
+        },
+        {
+            "type":"image_picker",
+            "label":"Image Two",
+            "id":"image_two"
+        },
+        {
+            "type":"text",
+            "label":"Title",
+            "id":"title"
+        },
+        {
+            "type":"text",
+            "label":"subtitle",
+            "id":"subtitle"
+        }
+    ],
+    "blocks": [
+        {
+            "type":"block",
+            "name":"dualContent",
+            "settings": [
+                {
+                    "type":"text",
+                    "label":"Paragrapgh Title",
+                    "id":"paragraph_title"
+                },
+                {
+                    "type":"textarea",
+                    "label":"Paragraph Text",
+                    "id":"paragraph_text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name":"Dual Content",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}
