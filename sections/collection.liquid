@@ -1,0 +1,39 @@
+{% assign title = section.settings.title %}
+
+<div>
+    <h3>{{ title }}</h3>
+    <ul>
+        {%- for collection in collections -%}
+            {%- for product in collections['all'].products -%}
+                <li>  
+                    <a href="{{ collection.url }}">
+                        <img src="{{ product | img_url }}" alt="">
+                        <div>
+                            <p>{{ product.tag }}</p>
+                            <p>{{ product.handle }}</p>
+                            <p>{{ product.price | money_without_currency }}</p>
+                        </div>
+                    </a>
+                </li>
+            {%- endfor -%}
+        {%- endfor -%}
+    </ul>
+</div>
+
+{% schema %}
+    {
+        "settings": [
+            {
+                "type":"text",
+                "label":"Title",
+                "id":"title"
+            }
+        ],
+        "presets": [
+            {
+                "name":"Collection",
+                "category":"Products"
+            }
+        ]
+    }
+{% endschema %}
