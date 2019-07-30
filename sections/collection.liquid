@@ -9,7 +9,9 @@
                     <a href="{{ collection.url }}">
                         <img src="{{ product | img_url }}" alt="">
                         <div>
-                            <p>{{ product.tag }}</p>
+                            {% for tag in product.tags %}
+                                <p>{{ tag }}</p>
+                            {% endfor %}
                             <p>{{ product.handle }}</p>
                             <p>{{ product.price | money_without_currency }}</p>
                         </div>

@@ -1,0 +1,59 @@
+{% for block in section.blocks %}
+    {% assign background_image = block.settings.background_image %}
+    {% assign name = block.settings.name %}
+    {% assign review = block.settings.review %}
+
+    <div class="testimonial-wrapper" style="background-image:url({{ background_image }})">
+        <div class="testimonial-content">
+            <img src="{{ reviewer_picture }}" alt="">
+            <h4>{{ name }}</h4>
+            <p>{{ review }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+
+{% schema %}
+    {
+        "blocks": [
+            {
+                "type":"testimonial",
+                "name":"testimonial",
+                "settings": [
+                    {
+                        "type":"text",
+                        "label":"Title",
+                        "id":"title",
+                        "default":"Testimonials"
+                    },
+                    {
+                        "type":"image_picker",
+                        "label":"Background Image",
+                        "id":"background_image"
+                    },
+                    {
+                        "type":"text",
+                        "label":"Name",
+                        "id":"name"
+                    },
+                    {
+                        "type":"image_picker",
+                        "label":"Reviewer's Picture",
+                        "id":"reviewer_picture"
+                    },
+                    {
+                        "type":"textarea",
+                        "label":"Review",
+                        "id":"review"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name":"Testimonials",
+                "category":"Products"
+            }
+        ]
+    }
+{% endschema %}
