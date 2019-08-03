@@ -1,0 +1,66 @@
+{% for block in section.blocks %}
+    {% assign title = block.settings.title %}
+    {% assign subtitle = block.settings.subtitle %}
+    {% assign background_image = block.settings.background_image %}
+    {% assign cta_url = block.settings.cta_url %}
+    {% assign cta_text = block.settings.cta_text %}
+    {% assign expiry = block.settings.expiry %}
+
+    <div class="promo-wrapper" style="background-image:url({{ background_image }})">
+        <div class="promo-content">
+            <h4>{{ subtitle }}</h4>
+            <h3>{{ title }}</h3>
+            <p>{{ expiry }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+
+{% schema %}
+    {
+        "blocks": [
+            {
+                "name":"promo",
+                "type":"promo",
+                "settings": [
+                    {
+                        "type":"text",
+                        "label":"Title",
+                        "id":"title"
+                    },
+                    {
+                        "type":"text",
+                        "label":"Subtitle",
+                        "id":"subtitle"
+                    },
+                    {
+                        "type":"image_picker",
+                        "label":"Background Image",
+                        "id":"background_image"
+                    },
+                    {
+                        "type":"url",
+                        "label":"CTA URL",
+                        "id":"cta_url"
+                    },
+                    {
+                        "type":"text",
+                        "label":"CTA Text",
+                        "id":"cta_text"
+                    },
+                    {
+                        "type":"text",
+                        "label":"Exp. Date (XX/XX - XX/XX/XXXX)",
+                        "id":"expiry"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name":"Promo",
+                "category":"Promotional"
+            }
+        ]
+    }
+{% endschema %}
