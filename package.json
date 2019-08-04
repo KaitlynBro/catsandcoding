@@ -1,0 +1,25 @@
+{
+  "name": "catscoding",
+  "version": "1.0.0",
+  "description": "A dev playground for me to mess around with Liquid and build fun stuff.",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "node-sass": "^4.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaitlynBro/catsandcoding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaitlynBro/catsandcoding/issues"
+  },
+  "homepage": "https://github.com/KaitlynBro/catsandcoding#readme"
+}

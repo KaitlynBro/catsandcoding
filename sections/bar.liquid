@@ -1,0 +1,70 @@
+{% for block in section.blocks %}
+    {% assign content = block.settings.content %}
+    {% assign white = block.settings.white %}
+    {% assign black = block.settings.black %}
+    {% assign background_color = block.settings.background_color %}
+    {% assign text_colour = block.settings.text_colour %}
+
+    {% if content != blank %}
+        <div class="bar col-12 p-3 d-flex align-items-center justify-content-center {{ background_color }}">
+            <p>{{ content }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% schema %}
+{
+    "blocks": [
+        {
+            "name":"bar",
+            "type":"bar",
+            "settings": [
+                {
+                    "type":"text",
+                    "label":"Text",
+                    "id":"content"
+                },
+                {
+                    "type":"select",
+                    "label":"Background Colour",
+                    "id":"background_color",
+                    "options": [
+                        {
+                            "label":"Black",
+                            "value":"black"
+                        },
+                        {
+                            "label":"White",
+                            "value":"white"
+                        }
+                    ]
+                },
+                {
+                    "type":"select",
+                    "label":"Text Colour",
+                    "id":"text_colour",
+                    "options": [
+                        {
+                            "label":"Black",
+                            "value":"black"
+                        },
+                        {
+                            "label":"White",
+                            "value":"white"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+<style>
+    .bar {
+        background-color:{{ background_color }};
+    }
+    p {
+        color:{{ text_colour }};
+    }
+</style>

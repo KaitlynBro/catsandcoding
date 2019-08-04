@@ -1,5 +1,9 @@
-@import 'partials/header';
+@import "../../node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import 'setup';
+@import 'variables';
+// @import 'header';
 
-// body {
-//     background-color: red !important;
-// }
+$white:#fff;
+$black:#000;
