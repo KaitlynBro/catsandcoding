@@ -1,3 +1,10 @@
+const headerContent = document.querySelector('h1');
+console.log(headerContent);
+
+if (window.innerWidth < 960) {
+  headerContent.classList.add('hiiiii');
+}
+
 /* Simple jQuery Equal Heights @version 1.5.1. Copyright (c) 2013 Matt Banks. Dual licensed under the MIT and GPL licenses. */
 !(function(a) {
   (a.fn.equalHeights = function() {

@@ -1,9 +1,136 @@
-@import "../../node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 @import 'setup';
 @import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Raleway:400,600&display=swap');
+
 // @import 'header';
 
 $white:#fff;
 $black:#000;
+$gray:#808080;
+$pink:#ffc0cb;
+$raleway: 'Raleway', sans-serif;
+$merriweather: 'Merriweather', serif;
+
+// mixins
+
+@mixin h1 {
+    color: $black;
+    font-size:65px;
+    text-transform: capitalize;
+    font-family: $merriweather;
+    text-align: center;
+    margin:0;
+    line-height: 70px;
+    @media screen and (max-width: 480px) {
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+@mixin h2 {
+    color: $gray;
+    font-size:25px;
+    text-transform: uppercase;
+    font-family: $raleway;
+    font-weight: 100;
+    text-align: center;
+    margin:0;
+    line-height: 30px;
+    @media screen and (max-width: 480px) {
+        display:none;
+    }
+}
+
+@mixin button {
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: $pink;
+    max-width: 150px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: $white;
+    font-weight: 500;
+    font-family: $raleway;
+    transition:all 0.5s;
+    &:hover {
+        max-width:160px;
+        padding:15px;
+        text-decoration: none;
+        font-size: 18px;
+        border:2px solid white;
+
+    }
+}
+
+body {
+    font-size:16px;
+    margin:0 auto;
+    h1 {
+        @include h1;
+    }
+    h2 {
+        @include h2;
+    }
+}
+
+// header
+.header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:85vh;
+    background-position: 90% 82%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    .header-content {
+        position: absolute;
+        left: 20%;
+        transform: translate(-20%);
+        top: 30%;
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 25px;
+        }
+        a {
+            @include button;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        // background-position: 60% 100%;
+        min-height: 90vh;
+        background-attachment: fixed;
+        .header-content {
+            bottom: 0;
+            top: unset;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            background-color: $white;
+            border-top: 1px solid $black;
+            a {
+                display:none;
+            }
+            h1 {
+                margin:5px;
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+}
