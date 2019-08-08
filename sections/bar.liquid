@@ -1,15 +1,22 @@
 {% for block in section.blocks %}
-    {% assign content = block.settings.content %}
+    {% assign slide_one = block.settings.slide_one %}
+    {% assign slide_two = block.settings.slide_two %}
     {% assign white = block.settings.white %}
     {% assign black = block.settings.black %}
     {% assign background_color = block.settings.background_color %}
     {% assign text_colour = block.settings.text_colour %}
 
-    {% if content != blank %}
-        <div class="bar col-12 p-3 d-flex align-items-center justify-content-center {{ background_color }}">
-            <p>{{ content }}</p>
+    <div id="carouselExampleIndicators" class="carousel slide bar col-12 p-2 d-flex align-items-center justify-content-center {{ background_color }}" data-ride="carousel">   
+        <!-- data-interval="3000" -->
+        <div class="carousel-inner bar-wrapper">
+            <div class="carousel-item active bar-item">
+                <p>{{ slide_one }}</p>
+            </div>
+            <div class="carousel-item bar-item">
+                <p>{{ slide_two }}</p>
+            </div>
         </div>
-    {% endif %}
+        </div>
 {% endfor %}
 
 {% schema %}
@@ -22,7 +29,12 @@
                 {
                     "type":"text",
                     "label":"Text",
-                    "id":"content"
+                    "id":"slide_one"
+                },
+                {
+                    "type":"text",
+                    "label":"Text",
+                    "id":"slide_two"
                 },
                 {
                     "type":"select",
@@ -30,12 +42,12 @@
                     "id":"background_color",
                     "options": [
                         {
-                            "label":"Black",
-                            "value":"black"
+                            "label":"Pink",
+                            "value":"#ffc4c6"
                         },
                         {
-                            "label":"White",
-                            "value":"white"
+                            "label":"Black",
+                            "value":"#000"
                         }
                     ]
                 },
@@ -46,11 +58,11 @@
                     "options": [
                         {
                             "label":"Black",
-                            "value":"black"
+                            "value":"#000"
                         },
                         {
                             "label":"White",
-                            "value":"white"
+                            "value":"#fff"
                         }
                     ]
                 }
@@ -64,7 +76,7 @@
     .bar {
         background-color:{{ background_color }};
     }
-    p {
+    .bar p {
         color:{{ text_colour }};
     }
 </style>
