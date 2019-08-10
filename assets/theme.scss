@@ -118,9 +118,27 @@ body {
 }
 
 .menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
     .menu-left {
         h3 {
+            @include h3;
+            font-size: 30px;
             font-family: $lobster;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            span {
+                width: 7px;
+                height: 7px;
+                border-radius: 100%;
+                margin: 0 0px 5px 4px;   
+                font-size: 30px;
+            }
         }
     }
 }
