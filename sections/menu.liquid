@@ -3,18 +3,19 @@
   {% assign company_name = block.settings.company_name %}
 
   <div class="menu-wrapper">
-    <div class="menu-left">
+    <div class="menu-left col-1">
       <h3>
         {{ company_name }} <span></span>
       </h3>
     </div>
-    <div class="menu-center">
+    <div class="menu-center col-10">
       {% for link in linklists.main-menu.links %}
         <a href="{{ link.url }}">{{ link.title }}</a>
       {% endfor %}
     </div>
-    <div class="menu-right">
+    <div class="menu-right col-1">
         <span class="icon icon-cart" aria-hidden="true"></span>
+        <span class="cart-count">{{ cart.item_count }}</span>
     </div> 
   </div>
 {% endfor %}

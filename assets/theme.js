@@ -1,3 +1,11 @@
+$(document).ready(function() {
+  $("[href]").each(function() {
+      if (this.href == window.location.href) {
+          $(this).addClass("active");
+      }
+  });
+});
+
 /* Simple jQuery Equal Heights @version 1.5.1. Copyright (c) 2013 Matt Banks. Dual licensed under the MIT and GPL licenses. */
 !(function(a) {
   (a.fn.equalHeights = function() {
