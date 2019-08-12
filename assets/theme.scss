@@ -233,3 +233,33 @@ body {
         }
     }
 }
+
+//dual content
+
+.dual-content-wrapper {
+    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin:0 auto 120px auto;
+    .dual-content-images {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        .dual-content-image {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            max-width: 245px;
+            min-height: 370px;
+            padding: 0;
+            width: 100%;
+            &:last-child {
+                top: 50px;
+                right: 40px;
+                max-width: 255px;
+                position: relative;
+            }
+        }
+    }
+}

@@ -3,22 +3,20 @@
 {% assign image_one = section.settings.image_one %}
 {% assign image_two = section.settings.image_two %}
 
-<div>
-    <div>
-        <div style="background-image:url({{ image_one | img_url: 'master' }});"></div>
-        <div style="background-image:url({{ image_two | img_url: 'master' }});"></div>
+<div class="dual-content-wrapper col-12">
+    <div class="dual-content-images col-6">
+        <div class="dual-content-image" style="background-image:url({{ image_one | img_url: 'master' }});"></div>
+        <div class="dual-content-image" style="background-image:url({{ image_two | img_url: 'master' }});"></div>
     </div>
-    <div>
+    <div class="dual-content-text">
         <h3>{{ title }}</h3>
         <h4>{{ subtitle }}</h4>
-        <div>
-            {% for block in section.blocks %}
-                {% assign paragraph_title = block.settings.paragraph_title %}
-                {% assign paragraph_text = block.settings.paragraph_text %}
-                <h4>{{ paragraph_title }}</h4>
-                <p>{{ paragraph_text }}</p>
-            {% endfor %}
-        </div>
+        {% for block in section.blocks %}
+            {% assign paragraph_title = block.settings.paragraph_title %}
+            {% assign paragraph_text = block.settings.paragraph_text %}
+            <h4>{{ paragraph_title }}</h4>
+            <p>{{ paragraph_text }}</p>
+        {% endfor %}
     </div>
 </div>
 
@@ -68,7 +66,7 @@
     "presets": [
         {
             "name":"Dual Content",
-            "category": "General",
+            "category": "General"
         }
     ]
 }
