@@ -4,8 +4,11 @@
 {% assign cta_url = block.settings.cta_url %}
 {% assign cta_text = block.settings.cta_text %}
 
-    <div style="background-image:url({{ background_image | img_url: 'master'}});">
+    <div class="deal-day-wrapper" style="background-image:url({{ background_image | img_url: 'master'}});">
         <h3>{{ title }}</h3>
+        <div class="deal-countdown">
+            <p id="demo"></p> 
+        </div>
         <a href="{{ cta_url }}" >{{ cta_text }}</a>
     </div>
 
@@ -49,3 +52,21 @@
         ] 
     }
 {% endschema %}
+
+{% javascript %}
+    var deadline = new Date("Sept 5, 2019 15:37:25").getTime(); 
+    var x = setInterval(function() { 
+    var now = new Date().getTime(); 
+    var t = deadline - now; 
+    var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+    var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+    document.getElementById("demo").innerHTML = days + "d "  
+    + hours + "h " + minutes + "m " + seconds + "s "; 
+        if (t < 0) { 
+            clearInterval(x); 
+            document.getElementById("demo").innerHTML = "EXPIRED"; 
+        } 
+    }, 1000); 
+{% endjavascript %}

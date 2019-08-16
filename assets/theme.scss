@@ -114,10 +114,10 @@ $lobster: 'Lobster Two', cursive;
     border:none;
     &:hover {
         max-width:160px;
-        // padding:15px;
         text-decoration: none;
         font-size: 18px;
         border:2px solid white;
+        color: $white;
 
     }
 }
@@ -153,6 +153,9 @@ body {
     }
     p {
         @include p;
+    }
+    a {
+        @include button;
     }
 }
 
@@ -340,3 +343,26 @@ body {
         }
     }
 }
+
+.deal-day-wrapper {
+    background-position: center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.timer {
+    font-size: 70px;
+  }
+  
+  .timer span {
+    color: #555;
+  }
+  
+  .timer i {
+    color: #bbb;
+    font-size: 40px;
+  }
