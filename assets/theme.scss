@@ -49,17 +49,51 @@ $lobster: 'Lobster Two', cursive;
 
 @mixin h3 {
     color: $black;
-    font-size:20px;
-    font-family: $raleway;
-    margin:0;
+    font-size:30px;
+    font-family: $merriweather;
+    margin:0 0 15px 0;
     line-height: 30px;
+    position:relative;
+    letter-spacing: 0.5px;
+    display:inline-block;
+    &:after {
+        @include underline;
+    }
+}
+
+@mixin h4 {
+    color: $black;
+    font-size: 21px;
+    line-height: 25px;
+    margin: 0;
+    font-family: $merriweather;
+}
+
+@mixin h5 {
+    color: $black;
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0;
+    font-family: $raleway;
+    position: relative;
+    display: inline-block;
+    &:after {
+        @include underline;
+        bottom: -5px;
+        width: 50%;
+        left:0;
+        transform:translate(0);
+        height: 2px;
+
+    }
 }
 
 @mixin p {
     font-size:16px;
-    color:$black;
+    font-weight: 100;
+    color:$gray;
     line-height: 25px;
-    margin:0;
+    margin:15px 0;
     font-family: $raleway;
 }
 
@@ -80,12 +114,23 @@ $lobster: 'Lobster Two', cursive;
     border:none;
     &:hover {
         max-width:160px;
-        padding:15px;
+        // padding:15px;
         text-decoration: none;
         font-size: 18px;
         border:2px solid white;
 
     }
+}
+
+@mixin underline {
+    content:"";
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    background-color: $pink;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 body {
@@ -99,6 +144,15 @@ body {
     }
     h3 {
         @include h3;
+    }
+    h4 {
+        @include h4;
+    }
+    h5 {
+        @include h5;
+    }
+    p {
+        @include p;
     }
 }
 
@@ -127,12 +181,15 @@ body {
     .menu-left {
         h3 {
             @include h3;
-            font-size: 30px;
             font-family: $lobster;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-end;
+            margin:0;
+            &:after {
+                content: unset;
+            }
             span {
                 width: 7px;
                 height: 7px;
@@ -210,7 +267,6 @@ body {
 
 @media screen and (max-width: 480px) {
     .header {
-        // background-position: 60% 100%;
         min-height: 90vh;
         background-attachment: fixed;
         .header-content {
@@ -242,10 +298,30 @@ body {
     flex-wrap: wrap;
     padding: 0;
     margin:0 auto 120px auto;
+    .dual-content-text {
+        h4 {
+           color: $gray;
+           margin: 15px 0;
+        }
+        h5 {
+            font-weight: 500;
+        }
+    }
     .dual-content-images {
         display: flex;
         flex-direction: row;
         padding: 0;
+        position:relative;
+        &:after {
+            content: "";
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translate(-50%);
+            width: 200px;
+            height: 370px;
+            z-index: 0;
+        }
         .dual-content-image {
             background-size: cover;
             background-repeat: no-repeat;
@@ -254,6 +330,7 @@ body {
             min-height: 370px;
             padding: 0;
             width: 100%;
+            z-index: 1;
             &:last-child {
                 top: 50px;
                 right: 40px;

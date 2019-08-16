@@ -2,19 +2,20 @@
 {% assign subtitle = section.settings.subtitle %}
 {% assign image_one = section.settings.image_one %}
 {% assign image_two = section.settings.image_two %}
+{% assign border_color = section.settings.border_color %}
 
 <div class="dual-content-wrapper col-12">
     <div class="dual-content-images col-6">
         <div class="dual-content-image" style="background-image:url({{ image_one | img_url: 'master' }});"></div>
         <div class="dual-content-image" style="background-image:url({{ image_two | img_url: 'master' }});"></div>
     </div>
-    <div class="dual-content-text">
+    <div class="dual-content-text col-6">
         <h3>{{ title }}</h3>
         <h4>{{ subtitle }}</h4>
         {% for block in section.blocks %}
             {% assign paragraph_title = block.settings.paragraph_title %}
             {% assign paragraph_text = block.settings.paragraph_text %}
-            <h4>{{ paragraph_title }}</h4>
+            <h5>{{ paragraph_title }}</h5>
             <p>{{ paragraph_text }}</p>
         {% endfor %}
     </div>
@@ -43,6 +44,21 @@
             "type":"text",
             "label":"subtitle",
             "id":"subtitle"
+        },
+        {
+            "type":"select",
+            "label":"Border Color",
+            "id":"border_color",
+            "options": [
+                {
+                    "label":"Pink",
+                    "value":"#ffc4c6"
+                },
+                {
+                    "label":"Black",
+                    "value":"#000"
+                }
+            ]
         }
     ],
     "blocks": [
@@ -71,3 +87,11 @@
     ]
 }
 {% endschema %}
+
+{% style %}
+
+.dual-content-images:after {
+    border:7px solid {{ border_color }};
+}
+
+{% endstyle %}
