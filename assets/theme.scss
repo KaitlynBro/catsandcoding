@@ -7,14 +7,19 @@
 
 // @import 'header';
 
+// colours
 $white:#fff;
 $black:#000;
 $gray:#808080;
 $pink:#ffc4c6;
+
+// fonts
 $raleway: 'Raleway', sans-serif;
 $merriweather: 'Merriweather', serif;
 $lobster: 'Lobster Two', cursive;
-$sectionmargin: 90px;
+
+// sizing
+$sectionmargin: 90px auto;
 
 // mixins
 
@@ -162,6 +167,7 @@ body {
 
 .section {
     margin: $sectionmargin;
+    width:1100px;
 }
 
 // bar
@@ -301,10 +307,12 @@ body {
 //dual content
 
 .dual-content-wrapper {
-    min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+    align-items: center;
+    margin-bottom: 120px;
+    align-items: flex-start;
     .dual-content-text {
         h4 {
            color: $gray;
@@ -324,20 +332,20 @@ body {
         &:after {
             content: "";
             position: absolute;
-            top: 15%;
+            top: 0;
             height: 370px;
             z-index: 0;
             left: 50%;
             transform: translate(-50%);
             width: 280px;
-            height: 320px;
+            height: 420px;
         }
         .dual-content-image {
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
             max-width: 245px;
-            height: 270px;
+            height: 370px;
             padding: 0;
             width: 100%;
             z-index: 1;
