@@ -6,7 +6,7 @@
   {% assign cta_text = block.settings.cta_text %}
   {% assign hero = block.settings.hero %}
 
-  <header class="header" id="test" style="background-image:url({{ hero | img_url: 'master' }});">
+  <header class="header" style="background-image:url({{ hero | img_url: 'master' }});">
     <div class="header-content">
       <h1>{{ header_title | replace: '|', '</br>'}}</h1>
       <h2>{{ header_subtitle }}</h2>

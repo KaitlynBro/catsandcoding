@@ -1,19 +1,21 @@
 {% assign title = section.settings.title %}
 
-<div>
+<div class="collection-wrapper section">
     <h3>{{ title }}</h3>
-    <ul>
+    <ul class="collection-list mt-5">
         {%- for collection in collections -%}
             {%- for product in collections['all'].products -%}
-                <li>  
-                    <a href="{{ collection.url }}">
-                        <img src="{{ product | img_url }}" alt="">
-                        <div>
+                <li class="collection-item">  
+                    <a href="{{ collection.url }}" class="product-card">
+                        <div class="product-image">
+                            <img src="{{ product | img_url:'master' }}" alt="">
+                        </div>
+                        <div class="product-info mt-1">
                             {% for tag in product.tags %}
-                                <p>{{ tag }}</p>
+                                <p class="product-tag">{{ tag }}</p>
                             {% endfor %}
-                            <p>{{ product.handle }}</p>
-                            <p>{{ product.price | money_without_currency }}</p>
+                            <p class="product-title">{{ product.title }}</p>
+                            <p class="product-price">${{ product.price | money_without_currency }}</p>
                         </div>
                     </a>
                 </li>
