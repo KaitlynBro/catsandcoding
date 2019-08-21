@@ -6,7 +6,7 @@
     {% assign cta_text = block.settings.cta_text %}
     {% assign expiry = block.settings.expiry %}
 
-    <div class="promo-wrapper section" style="background-image:url({{ background_image }})">
+    <div class="promo-wrapper section" style="background-image:url({{ background_image | img_url: 'master' }});">
         <div class="promo-content">
             <h4>{{ subtitle }}</h4>
             <h3>{{ title }}</h3>
