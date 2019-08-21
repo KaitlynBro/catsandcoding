@@ -2,12 +2,52 @@
     {% assign background_image = block.settings.background_image %}
     {% assign name = block.settings.name %}
     {% assign review = block.settings.review %}
+    {% assign star_rating = block.settings.star_rating %}
+    {% assign reviewer_picture = block.settings.reviewer_picture %}
+    {% assign star_grey = images['star-grey_1.png'] %}
+    {% assign star_white = images['star-white.png'] %}
+    
 
-    <div class="testimonial-wrapper col-9" style="background-image:url({{ background_image }})">
+    <div class="testimonial-wrapper" style="background-image:url({{ background_image | img_url: 'master' }});">
+        <img src="{{ reviewer_picture | img_url:'master' }}" alt="">
         <div class="testimonial-content">
-            <img src="{{ reviewer_picture }}" alt="">
-            <h4>{{ name }}</h4>
-            <p>{{ review }}</p>
+            <div class="testimonial-copy">
+                <h4>{{ name }}</h4>
+                <div class="star-wrapper">
+                    {% if star_rating == '1' %} 
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+                    {% elsif star_rating == '2' %}
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+                    {% elsif star_rating == '3' %}
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+                    {% elsif star_rating == '4' %}
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+                    {% elsif star_rating == '5' %}
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+                    {% endif %}
+                </div>
+                <p>{{ review }}</p>
+            </div>
         </div>
     </div>
 {% endfor %}
@@ -40,6 +80,33 @@
                         "type":"image_picker",
                         "label":"Reviewer's Picture",
                         "id":"reviewer_picture"
+                    },
+                    {
+                        "type":"select",
+                        "label":"Star Rating",
+                        "id":"star_rating",
+                        "options": [
+                            {
+                                "label":"1",
+                                "value":"1"
+                            },
+                            {
+                                "label":"2",
+                                "value":"2"
+                            },
+                            {
+                                "label":"3",
+                                "value":"3"
+                            },
+                            {
+                                "label":"4",
+                                "value":"4"
+                            },
+                            {
+                                "label":"5",
+                                "value":"5"
+                            }
+                        ]
                     },
                     {
                         "type":"textarea",
