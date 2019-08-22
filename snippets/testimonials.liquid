@@ -1,0 +1,33 @@
+<div class="star-wrapper">
+    {% if star_rating == '1' %} 
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+    {% elsif star_rating == '2' %}
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+    {% elsif star_rating == '3' %}
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+    {% elsif star_rating == '4' %}
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+    {% elsif star_rating == '5' %}
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
+        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
+    {% endif %}
+</div>

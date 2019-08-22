@@ -6,49 +6,28 @@
     {% assign reviewer_picture = block.settings.reviewer_picture %}
     {% assign star_grey = images['star-grey_1.png'] %}
     {% assign star_white = images['star-white.png'] %}
-    
 
-    <div class="testimonial-wrapper" style="background-image:url({{ background_image | img_url: 'master' }});">
-        <img src="{{ reviewer_picture | img_url:'master' }}" alt="">
-        <div class="testimonial-content">
-            <div class="testimonial-copy">
-                <h4>{{ name }}</h4>
-                <div class="star-wrapper">
-                    {% if star_rating == '1' %} 
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
-                    {% elsif star_rating == '2' %}
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
-                    {% elsif star_rating == '3' %}
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
-                    {% elsif star_rating == '4' %}
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_white | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
-                    {% elsif star_rating == '5' %}
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star">
-                        <img src="{{ star_grey | img_url:'master' }}" alt="{{ image.alt }}" class="star"> 
-                    {% endif %}
+    <div id="carouselExampleControls" class="carousel slide testimonial-wrapper col-12 p-2 d-flex align-items-center justify-content-center" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="testimonial-content">
+                    <img src="{{ reviewer_picture | img_url:'master' }}" alt="">
+                    <div class="testimonial-copy">
+                        <h4>{{ name }}</h4>
+                        {% include 'testimonials' %}
+                        <p>{{ review }}</p>
+                    </div>
                 </div>
-                <p>{{ review }}</p>
             </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 {% endfor %}
 
