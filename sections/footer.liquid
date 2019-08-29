@@ -4,40 +4,31 @@
 {% assign company_about = section.settings.company_about %}
 
 <div class="footer-wrapper">
-  <div class="section one logo">
-    <h3>
-      {{ company_name }}
-      <span>.</span>
-    </h3>
-    <p>{{ company_slogan }}</p>
-    <div>
-      <p>{{ company_about }}</p>
-      <span class="icon icon-facebook" aria-hidden="true"></span>
-      <span class="icon icon-twitter" aria-hidden="true"></span>
-      <span class="icon icon-pinterest" aria-hidden="true"></span>
-    </div>
-  </div>
-  <div class="section two list">
-    <h4>{{ linklists.location.title }}</h4>
-    {% for link in linklists.location.links %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}
-  </div>
-  <div class="section three list">
-    <h4>{{ linklists.sitemap.title }}</h4>
-    {% for link in linklists.sitemap.links %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}
-  </div>
-  <div class="section four list">
-      <h4>{{ linklists.subscribe.title }}</h4>
-      {% for link in linklists.subscribe.links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-        <input type="submit" value=">">
-      {% endfor %}
-      <form action="">
-          <input type="text" placeholder="Email"></input>
-        </form>
+  <div class=" footer-content col-10">
+      <div class="footer-list one col-2">
+          <h4 class="title">{{ linklists.location.title }}</h4>
+          {% for link in linklists.location.links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+        <div class="footer-list two col-2">
+          <h4 class="title">{{ linklists.sitemap.title }}</h4>
+          {% for link in linklists.sitemap.links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+        <div class="footer-list three col-2">
+            <h4 class="title">{{ linklists.subscribe.title }}</h4>
+            <form action="">
+                <input type="text" placeholder="Email" required></input>
+                <input type="submit" value=">">
+            </form>
+            <div class="icon-wrapper">
+              <span class="icon icon-facebook" aria-hidden="true"></span>
+              <span class="icon icon-twitter" aria-hidden="true"></span>
+              <span class="icon icon-pinterest" aria-hidden="true"></span>
+            </div> 
+        </div>
   </div>
 </div>
 
@@ -49,16 +40,6 @@
         "type":"text",
         "label":"Company Name",
         "id":"company_name"
-      },
-      {
-        "type":"text",
-        "label":"Company Slogan",
-        "id":"company_slogan"
-      },
-      {
-        "type":"textarea",
-        "label":"About Company",
-        "id":"company_about"
       }
     ],
     "presets": [

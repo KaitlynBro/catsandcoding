@@ -12,6 +12,7 @@ $white:#fff;
 $black:#000;
 $gray:#808080;
 $pink:#ffc4c6;
+$ghostwhite:#f8f8ff;
 
 // fonts
 $raleway: 'Raleway', sans-serif;
@@ -94,6 +95,27 @@ $sectionmargin: 90px auto;
     }
 }
 
+@mixin logo {
+    @include h3;
+    font-family: $lobster;
+    display: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 0;
+    span {
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        margin: 0 0px 5px 4px;   
+        font-size: 30px;
+        background-color: $pink;
+    }
+    &:after {
+        content:unset;
+    }
+}
+
 @mixin p {
     font-size:16px;
     font-weight: 100;
@@ -151,6 +173,9 @@ body {
     h3 {
         @include h3;
     }
+    h3.logo {
+        @include logo;
+    }
     h4 {
         @include h4;
     }
@@ -193,9 +218,7 @@ body {
     align-items: center;
     padding:20px;
     .menu-left {
-        h3 {
-            @include h3;
-            font-family: $lobster;
+        h3.logo {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -469,6 +492,7 @@ body {
     justify-content: center;
     align-items: center;
     justify-content: center;
+    padding: 0;
     img {
         width: 150px;
         border-radius: 100%;
@@ -476,6 +500,10 @@ body {
         object-fit: cover;
         margin: 0 auto -20px auto;
         z-index: 1;
+    }
+    a {
+        margin: 0;
+        padding: 0;
     }
     .testimonial-content {
         display:flex;
@@ -554,6 +582,98 @@ body {
             box-sizing: content-box;
             color: $black;
             font-weight: 400;
+        }
+    }
+}
+
+.footer-wrapper {
+    margin: 0 auto;
+    padding:30px 30px 0 30px;
+    background: $ghostwhite;
+    display: flex;
+    justify-content: center;
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 0 50px;
+    }
+    .footer-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:center;
+        padding: 0;
+        margin:0 90px;
+        h4 {
+            margin: 5px 0;
+        }
+        a {
+                margin:5px 0;
+                font-size: 14px;
+                color:$gray;
+                background-color: unset;
+                text-transform: capitalize;
+                padding: 0;
+                border: unset;
+        }
+        &:nth-child(3) {
+            p {
+                margin:5px 0;
+                font-size: 14px;
+                color:$gray;
+                background-color: unset;
+                text-transform: capitalize;
+                padding: 0;
+                border: unset;
+                font-weight: 500;
+                font-family:$raleway;
+            }
+            form {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                input[type="text"] {
+                    margin: 0;
+                    border-bottom: 1px solid $gray;
+                    border-right: none;
+                    border-left: none;
+                    border-top: none;
+                    border-radius: 0px;
+                    width: 150px;
+                }
+                input[type="submit"] {
+                    background-color: unset;
+                    color: $gray;
+                    font-size: 15px;
+                    font-weight: 100;
+                    padding: 5px;
+                }
+            }
+            .icon-wrapper {   
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .icon {
+                    &:not(:first-of-type) {
+                        margin: 0 10px;
+                    }
+                    &:first-of-type {
+                        margin-right: 10px;
+                    }
+                    &:before {
+                        font-size: 14px;
+                        transition:0.5s;
+                        color: $pink;
+                    }
+                    &:hover:before {
+                        font-size: 18px;
+                        color: $black;
+                    }
+                }
+            }
         }
     }
 }

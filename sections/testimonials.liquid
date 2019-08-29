@@ -7,7 +7,7 @@
     {% assign star_grey = images['star-grey_1.png'] %}
     {% assign star_white = images['star-white.png'] %}
 
-    <div id="carouselExampleControls" class="carousel slide testimonial-wrapper col-12 p-2 d-flex align-items-center justify-content-center" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide testimonial-wrapper d-flex align-items-center justify-content-center" data-ride="carousel" style="background-image:url({{ background_image | img_url: 'master' }});">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="testimonial-content">
