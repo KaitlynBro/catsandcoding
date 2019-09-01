@@ -1,0 +1,62 @@
+{% for block in section.blocks %}
+    {% assign title = block.settings.title %}
+    {% assign message = block.settings.message %}
+    {% assign redirect_message = block.settings.redirect_message %}
+    {% assign cta_url = block.settings.cta_url %}
+    {% assign cta_text = block.settings.cta_text %}
+        <div class="coming-soon-content m-5 d-flex justify-content-center align-items-center flex-column">
+            <h3>{{ title }}</h3>
+            <p>{{ message }}</p>
+            <p>{{ redirect_message }}</p>
+            <a href="{{ cta_url }}">{{ cta_text }}</a>
+        </div>
+{% endfor %}
+
+
+{% schema %}
+{
+    "blocks": [
+        {
+            "type":"message",
+            "name":"message",
+            "settings": [
+            {
+                "type": "label",
+                "id":"test",
+                "label":"Type here if you want "
+            },
+            {
+                "type":"image_picker",
+                "label":"Image Picker",
+                "id"
+            }
+                {
+                    "type":"text",
+                    "label":"Title",
+                    "id":"title"
+                },
+                {
+                    "type":"textarea",
+                    "label":"Message",
+                    "id":"message"
+                },
+                {
+                    "type":"textarea",
+                    "label":"Redirect Message",
+                    "id":"redirect_message"
+                },
+                {
+                    "type":"text",
+                    "label":"Redirect CTA Text",
+                    "id":"cta_text"
+                },
+                {
+                    "type":"url",
+                    "label":"Redirect CTA URL",
+                    "id":"cta_url"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

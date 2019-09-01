@@ -89,19 +89,32 @@
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
-  {% section 'bar' %}
-  {% section 'menu' %}
-  {% section 'header' %}
+  {% if page.url != '/pages/coming-soon' %}
+    {% section 'bar' %}
+    {% section 'menu' %}
+    {% section 'header' %}
 
-  <main class="wrapper main-content" role="main">
-    <div class="grid">
-        <div class="grid__item">
-          {{ content_for_layout }}
-        </div>
-    </div>
-  </main>
+    <main class="wrapper main-content" role="main">
+      <div class="grid">
+          <div class="grid__item">
+            {{ content_for_layout }}
+          </div>
+      </div>
+    </main>
 
-  {% section 'footer' %}
+    {% section 'footer' %}
+
+  {% else %}
+  
+    <main class="wrapper main-content" role="main">
+      <div class="grid">
+          <div class="grid__item">
+            {{ content_for_layout }}
+          </div>
+      </div>
+    </main>
+
+  {% endif %}
 
   {%- if template.name == 'index' -%}
     <p id="slideshow-info" class="visually-hidden" aria-hidden="true">

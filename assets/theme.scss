@@ -336,6 +336,7 @@ body {
     align-items: center;
     margin-bottom: 120px;
     align-items: flex-start;
+    justify-content:space-evenly;
     .dual-content-text {
         h4 {
            color: $gray;
@@ -493,12 +494,17 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0;
+    .carousel-inner {
+        width:90%;
+    }
+    .carousel-control-next, .carousel-control-prev {
+        width: 5%;
+    }
     img {
-        width: 150px;
+        width: 100px;
         border-radius: 100%;
-        height: 150px;
+        height: 100px;
         object-fit: cover;
-        margin: 0 auto -20px auto;
         z-index: 1;
     }
     a {
@@ -511,20 +517,25 @@ body {
         align-items:center;
         justify-content:center;
         background-color:$white;
-        padding: 25px;
+        padding: 15px;
         width: 90%;
+        margin: 0 auto;
         .testimonial-copy {
             display: flex;
             align-items:center;
             justify-content: center;
             flex-direction:column;
             text-align: center;
+            p {
+                margin: 15px auto;
+                width:90%;
+            }
             .star-wrapper {
                 display: flex;
                 flex-direction:row;
                 justify-content: center;
                 align-items: center;
-                margin:10px auto 20px auto;
+                margin:5px auto;
                 .star {
                     width: 20px;
                     height: 20px;
@@ -609,13 +620,14 @@ body {
             margin: 5px 0;
         }
         a {
-                margin:5px 0;
-                font-size: 14px;
-                color:$gray;
-                background-color: unset;
-                text-transform: capitalize;
-                padding: 0;
-                border: unset;
+            margin:5px 0;
+            font-size: 14px;
+            color:$gray;
+            background-color: unset;
+            text-transform: capitalize;
+            padding: 0;
+            border: unset;
+            text-align: center;
         }
         &:nth-child(3) {
             p {
@@ -675,5 +687,33 @@ body {
                 }
             }
         }
+    }
+}
+
+//coming soon page
+
+[id="coming-soon"] {
+    background-color: $ghostwhite;
+}
+.coming-soon-content {
+    min-height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:100% 100%;
+    min-height:100vh;
+    h3 {
+        margin: 0 0 35px 0;
+    }
+    p {
+        margin:0 0 10px 0;
+        &:last-of-type {
+            font-weight:400;
+        }
+    }
+    a {
+        max-width: 170px;
+        width: 100%;
     }
 }

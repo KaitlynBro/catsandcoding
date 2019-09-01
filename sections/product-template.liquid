@@ -68,6 +68,8 @@
               <img src="{{ featured_image | img_url: '1024x1024', scale: 2 }}" alt="{{ featured_image.alt | escape }}">
             </noscript>
           </div>
+          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
 
           {% if product.images.size > 1 %}
 
