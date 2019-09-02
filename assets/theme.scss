@@ -217,6 +217,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding:20px;
+    &.mobile {
+        display: none;
+    }
     .menu-left {
         h3.logo {
             display: flex;
@@ -270,6 +273,28 @@ body {
             align-items: flex-start;
             margin: 5px;
             font-size: 14px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .menu-wrapper {
+        justify-content: center;
+        &.mobile {
+            display: block;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 20px;
+            z-index: 2;
+            &.menu-center {
+                a {
+                    text-transform: lowercase;
+                }
+            }
+        }
+        &.desktop {
+            display: none;
         }
     }
 }

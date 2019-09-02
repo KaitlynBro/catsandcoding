@@ -4,6 +4,10 @@
     {% assign review = block.settings.review %}
     {% assign star_rating = block.settings.star_rating %}
     {% assign reviewer_picture = block.settings.reviewer_picture %}
+    {% assign name_two = block.settings.name_two %}
+    {% assign review_two = block.settings.review_two %}
+    {% assign star_rating_two = block.settings.star_rating_two %}
+    {% assign reviewer_picture_two = block.settings.reviewer_picture_two %}
     {% assign star_grey = images['star-grey_1.png'] %}
     {% assign star_white = images['star-white.png'] %}
 
@@ -16,6 +20,17 @@
                         <h4>{{ name }}</h4>
                         {% include 'testimonials' %}
                         <p>{{ review }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="testimonial-content">
+                    <img src="{{ reviewer_picture_two | img_url:'master' }}" alt="">
+                    <div class="testimonial-copy">
+                        <h4>{{ name_two }}</h4>
+                        {% include 'testimonials' %}
+                        <p>{{ review_two }}</p>
                     </div>
                 </div>
             </div>
@@ -61,6 +76,21 @@
                         "id":"reviewer_picture"
                     },
                     {
+                        "type":"image_picker",
+                        "label":"Background Image",
+                        "id":"background_image_two"
+                    },
+                    {
+                        "type":"text",
+                        "label":"Name",
+                        "id":"name_two"
+                    },
+                    {
+                        "type":"image_picker",
+                        "label":"Reviewer's Picture",
+                        "id":"reviewer_picture_two"
+                    },
+                    {
                         "type":"select",
                         "label":"Star Rating",
                         "id":"star_rating",
@@ -91,6 +121,11 @@
                         "type":"textarea",
                         "label":"Review",
                         "id":"review"
+                    },
+                    {
+                        "type":"textarea",
+                        "label":"Review",
+                        "id":"review_two"
                     }
                 ]
             }
