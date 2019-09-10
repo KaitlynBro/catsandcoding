@@ -162,7 +162,7 @@ $sectionmargin: 90px auto;
 }
 
 body {
-    font-size:16px;
+    font: size 16rem;
     margin:0 auto;
     h1 {
         @include h1;
@@ -193,6 +193,12 @@ body {
 .section {
     margin: $sectionmargin;
     max-width:1100px;
+}
+
+.wrapper.main-content {
+    @media (max-width:768px) {
+        padding: 0;
+    }
 }
 
 // bar
@@ -285,9 +291,14 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            padding: 20px;
+            padding: 20px 0;
             z-index: 2;
-            &.menu-center {
+            position:fixed;
+            bottom:0;
+            background-color: $white;
+            width: 100%;
+            border-top: 1px solid $black;
+            .menu-center {
                 a {
                     text-transform: lowercase;
                 }
@@ -329,7 +340,7 @@ body {
 
 @media screen and (max-width: 480px) {
     .header {
-        min-height: 90vh;
+        min-height: 100vh;
         background-attachment: fixed;
         .header-content {
             bottom: 0;
